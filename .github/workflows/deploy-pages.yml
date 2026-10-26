@@ -1,116 +1,116 @@
-name Build and deploy Dignity Kefir
+name: Build and deploy Dignity Kefir
 
-on
-  push
-    branches
+on:
+  push:
+    branches:
       - main
-  workflow_dispatch
+  workflow_dispatch:
 
-permissions
-  contents read
-  pages write
-  id-token write
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
-concurrency
-  group github-pages
-  cancel-in-progress true
+concurrency:
+  group: github-pages
+  cancel-in-progress: true
 
-jobs
-  build
-    runs-on ubuntu-latest
-    steps
-      - name Check out repository
-        uses actionscheckout@v4
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
 
-      - name Build static site
-        run 
-          node 'NODE'
-          const fs = require('nodefs');
-          const path = require('nodepath');
+      - name: Build static site
+        run: |
+          node <<'NODE'
+          const fs = require('node:fs');
+          const path = require('node:path');
 
           const requiredFiles = [
-            'htmlindex.html',
-            'htmlmenu.html',
-            'htmlnosotros.html',
-            'datasiteData.json',
-            'designsglobal.css',
-            'designsglobal2.css',
-            'designskefir.css',
-            'sitessite.js',
-            'resourceskefir.png',
+            'html/index.html',
+            'html/menu.html',
+            'html/nosotros.html',
+            'data/siteData.json',
+            'designs/global.css',
+            'designs/global2.css',
+            'designs/kefir.css',
+            'sites/site.js',
+            'resources/kefir.png',
           ];
 
           for (const file of requiredFiles) {
             if (!fs.existsSync(file)) {
-              throw new Error(`Falta el archivo requerido en el repositorio ${file}`);
+              throw new Error(`Falta el archivo requerido en el repositorio: ${file}`);
             }
           }
 
-          const site = JSON.parse(fs.readFileSync('datasiteData.json', 'utf8'));
-          if (!site.meta.title  !site.home.featured  !Array.isArray(site.menu.products)) {
-            throw new Error('datasiteData.json no tiene el esquema esperado de Dignity Kefir.');
+          const site = JSON.parse(fs.readFileSync('data/siteData.json', 'utf8'));
+          if (!site.meta?.title || !site.home?.featured || !Array.isArray(site.menu?.products)) {
+            throw new Error('data/siteData.json no tiene el esquema esperado de Dignity Kefir.');
           }
 
           const output = '_site';
-          fs.rmSync(output, { recursive true, force true });
-          fs.mkdirSync(path.join(output, 'css'), { recursive true });
-          fs.mkdirSync(path.join(output, 'js'), { recursive true });
-          fs.mkdirSync(path.join(output, 'api'), { recursive true });
-          fs.mkdirSync(path.join(output, 'resources'), { recursive true });
+          fs.rmSync(output, { recursive: true, force: true });
+          fs.mkdirSync(path.join(output, 'css'), { recursive: true });
+          fs.mkdirSync(path.join(output, 'js'), { recursive: true });
+          fs.mkdirSync(path.join(output, 'api'), { recursive: true });
+          fs.mkdirSync(path.join(output, 'resources'), { recursive: true });
 
           for (const file of ['index.html', 'menu.html', 'nosotros.html']) {
             let html = fs.readFileSync(path.join('html', file), 'utf8');
-            html = html.replace('src=resourceskefir.png', 'src=resourceskefir.png');
+            html = html.replace('src="/resources/kefir.png"', 'src="resources/kefir.png"');
             fs.writeFileSync(path.join(output, file), html);
           }
 
           for (const file of ['global.css', 'global2.css', 'kefir.css']) {
-            fs.copyFileSync(`designs${file}`, path.join(output, 'css', file));
+            fs.copyFileSync(path.join('designs', file), path.join(output, 'css', file));
           }
 
           fs.writeFileSync(path.join(output, 'css', 'product-photo.css'), `
           .featured-product-photo {
-            position relative;
-            z-index 1;
-            display block;
-            width auto;
-            max-width 100%;
-            height min(62vh, 590px);
-            object-fit contain;
-            filter drop-shadow(12px 18px 15px rgba(41, 53, 43, 0.18));
+            position: relative;
+            z-index: 1;
+            display: block;
+            width: auto;
+            max-width: 100%;
+            height: min(62vh, 590px);
+            object-fit: contain;
+            filter: drop-shadow(12px 18px 15px rgba(41, 53, 43, 0.18));
           }
-          @media (max-width 760px) {
-            .featured-product-photo { height 300px; }
+          @media (max-width: 760px) {
+            .featured-product-photo { height: 300px; }
           }
           `);
 
-          const script = fs.readFileSync('sitessite.js', 'utf8');
-          const staticScript = script.replace(fetch('apisite'), fetch('apisite.json'));
+          const script = fs.readFileSync('sites/site.js', 'utf8');
+          const staticScript = script.replace("fetch('/api/site')", "fetch('./api/site.json')");
           if (staticScript === script) {
-            throw new Error('No se encontró fetch(apisite) en sitessite.js para adaptarlo a GitHub Pages.');
+            throw new Error("No se encontró fetch('/api/site') en sites/site.js para adaptarlo a GitHub Pages.");
           }
           fs.writeFileSync(path.join(output, 'js', 'site.js'), staticScript);
 
-          fs.copyFileSync('datasiteData.json', path.join(output, 'api', 'site.json'));
-          fs.copyFileSync('resourceskefir.png', path.join(output, 'resources', 'kefir.png'));
+          fs.copyFileSync('data/siteData.json', path.join(output, 'api', 'site.json'));
+          fs.copyFileSync('resources/kefir.png', path.join(output, 'resources', 'kefir.png'));
           fs.writeFileSync(path.join(output, '.nojekyll'), '');
           NODE
 
-      - name Configure GitHub Pages
-        uses actionsconfigure-pages@v5
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
 
-      - name Upload Pages artifact
-        uses actionsupload-pages-artifact@v3
-        with
-          path _site
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
 
-  deploy
-    environment
-      name github-pages
-      url ${{ steps.deployment.outputs.page_url }}
-    runs-on ubuntu-latest
-    needs build
-    steps
-      - name Deploy to GitHub Pages
-        id deployment
-        uses actionsdeploy-pages@v4
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
