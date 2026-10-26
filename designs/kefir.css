@@ -1,0 +1,317 @@
+:root {
+  --color-ink: #29352b;
+  --color-paper: #f4efdf;
+  --color-paper-deep: #e7dfcb;
+  --color-accent: #8b5738;
+  --color-accent-dark: #68402d;
+  --color-sage: #9ba982;
+  --color-white: #fffaf0;
+  --font-display: "Segoe Script", "Bradley Hand", cursive;
+  --font-body: "Segoe Print", "Bradley Hand", "Comic Sans MS", cursive;
+  --shadow-soft: 0 18px 45px rgba(41, 53, 43, 0.18);
+}
+
+body {
+  background-color: var(--color-paper);
+  background-image:
+    radial-gradient(ellipse at 18% 24%, rgba(255, 255, 255, 0.36), transparent 45%),
+    repeating-linear-gradient(0deg, rgba(105, 83, 55, 0.025) 0, rgba(105, 83, 55, 0.025) 1px, transparent 1px, transparent 4px);
+  font-family: var(--font-body);
+}
+
+h1,
+h2,
+h3,
+.brand,
+.principle-arrow,
+.art-card-front strong {
+  font-family: var(--font-display);
+}
+
+.site-header,
+.site-footer,
+.contact-band {
+  border-color: rgba(41, 53, 43, 0.2);
+}
+
+.button {
+  border-radius: 999px;
+}
+
+.hero-art,
+.about-art {
+  background-color: #b6b995;
+  background-image: radial-gradient(circle at 20% 18%, rgba(255, 250, 240, 0.38), transparent 35%);
+}
+
+.art-card-front {
+  border-radius: 48% 48% 8px 8px;
+}
+
+.product-card {
+  overflow: hidden;
+  border: 1px solid rgba(41, 53, 43, 0.14);
+  border-radius: 4px;
+  background: rgba(255, 250, 240, 0.58);
+}
+
+.drink-visual::before {
+  border-radius: 12px 12px 18px 18px;
+}
+
+.product-badge {
+  border-radius: 999px;
+}
+
+.featured-product {
+  display: flex;
+  min-height: calc(100svh - 92px);
+  align-items: center;
+  padding: clamp(2.5rem, 6vh, 5rem) 0;
+  background: var(--color-paper-deep);
+}
+
+.featured-product-grid {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.78fr) minmax(0, 1.22fr);
+  align-items: center;
+  gap: clamp(2.5rem, 7vw, 6rem);
+}
+
+.featured-product-art {
+  position: relative;
+  display: grid;
+  min-height: min(62vh, 590px);
+  place-items: center;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 50% 42%, rgba(255, 250, 240, 0.72), transparent 42%),
+    #b6b995;
+}
+
+.featured-product-art::before,
+.featured-product-art::after {
+  position: absolute;
+  width: 54%;
+  aspect-ratio: 1;
+  border: 1px solid rgba(41, 53, 43, 0.22);
+  border-radius: 50%;
+  content: "";
+}
+
+.featured-product-art::after {
+  width: 70%;
+}
+
+.featured-product-stamp,
+.featured-art-caption {
+  position: absolute;
+  z-index: 1;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.featured-product-stamp {
+  top: 1.5rem;
+  left: 1.5rem;
+}
+
+.featured-art-caption {
+  right: 1.5rem;
+  bottom: 1.5rem;
+}
+
+.featured-bottle {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  width: clamp(150px, 15vw, 210px);
+  height: clamp(300px, 42vh, 390px);
+  flex-direction: column;
+  align-items: center;
+  filter: drop-shadow(18px 22px 16px rgba(41, 53, 43, 0.2));
+  transform: rotate(-5deg);
+}
+
+.featured-bottle::before {
+  position: absolute;
+  top: 12%;
+  width: 100%;
+  height: 88%;
+  border: 2px solid rgba(41, 53, 43, 0.38);
+  border-radius: 25% 25% 15% 15% / 13% 13% 8% 8%;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.52), transparent 22% 78%, rgba(41, 53, 43, 0.12)), #f7f0de;
+  content: "";
+}
+
+.featured-bottle-cap {
+  position: relative;
+  z-index: 1;
+  width: 36%;
+  height: 15%;
+  border: 2px solid rgba(41, 53, 43, 0.38);
+  border-radius: 5px 5px 0 0;
+  background: #8b5738;
+}
+
+.featured-bottle-label {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  width: 100%;
+  height: 48%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  margin-top: 17%;
+  border-block: 1px solid rgba(41, 53, 43, 0.25);
+  background: #f4efdf;
+  color: var(--color-ink);
+  text-align: center;
+}
+
+.featured-bottle-label > span,
+.featured-bottle-label small {
+  font-family: var(--font-body);
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.featured-bottle-label strong {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 4vw, 3.6rem);
+  font-weight: 400;
+}
+
+.featured-product-copy .section-number {
+  margin-bottom: 1rem;
+}
+
+.featured-product-copy h2 {
+  margin-bottom: 1.2rem;
+  font-size: clamp(2.6rem, 4.5vw, 4.8rem);
+}
+
+.featured-product-intro {
+  margin-bottom: 1.5rem;
+  font-size: clamp(1rem, 1.3vw, 1.2rem);
+}
+
+.featured-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem 2rem;
+  margin-bottom: 1rem;
+}
+
+.featured-details h3 {
+  margin-bottom: 0.7rem;
+  font-size: 1.35rem;
+  font-weight: 400;
+}
+
+.featured-benefits {
+  border-top: 1px solid rgba(41, 53, 43, 0.3);
+}
+
+.featured-benefits .principle {
+  grid-template-columns: 1fr auto;
+  gap: 0.7rem;
+  padding: 0.65rem 0;
+  border-bottom: 1px solid rgba(41, 53, 43, 0.3);
+}
+
+.featured-benefits .principle-index {
+  display: none;
+}
+
+.featured-benefits .principle h3 {
+  margin-bottom: 0.2rem;
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.featured-benefits .principle p,
+.preparation-note p {
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+.featured-benefits .principle-arrow {
+  font-size: 1.2rem;
+}
+
+.preparation-note {
+  padding: 1rem;
+  background: rgba(255, 250, 240, 0.62);
+}
+
+.preparation-note p {
+  margin-bottom: 0;
+}
+
+.product-note {
+  max-width: 720px;
+  margin-bottom: 1rem;
+  font-size: 0.7rem;
+  opacity: 0.8;
+}
+
+.contact-band,
+.site-footer {
+  background-color: #344538;
+}
+
+@media (max-width: 900px) {
+  .featured-product {
+    min-height: 0;
+  }
+
+  .featured-product-grid {
+    grid-template-columns: minmax(220px, 0.8fr) minmax(0, 1.2fr);
+    gap: 2rem;
+  }
+
+  .featured-details {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .featured-product-art {
+    min-height: 500px;
+  }
+}
+
+@media (max-width: 760px) {
+  .featured-product {
+    padding: 2rem 0 3rem;
+  }
+
+  .featured-product-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .featured-product-art {
+    min-height: 340px;
+  }
+
+  .featured-bottle {
+    height: 275px;
+  }
+
+  .featured-details {
+    grid-template-columns: 1fr;
+  }
+
+  .site-nav {
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    letter-spacing: 0;
+    text-transform: none;
+  }
+}
