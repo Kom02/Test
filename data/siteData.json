@@ -1,6 +1,6 @@
 {
   "meta": {
-    "title": "Dignity Kefir | Bienestar en cada sorbo",
+    "title": "Dignity Coffee",
     "description": "Descubre nuestro kéfir, una bebida fermentada para acompañar tu rutina de bienestar."
   },
   "home": {
@@ -43,7 +43,7 @@
       "eyebrow": "Sobre el kéfir",
       "title": "Una bebida",
       "highlight": "para tu bienestar.",
-      "text": "El kéfir es una bebida fermentada de sabor característico. En Dignity Kefir te ofrecemos una opción refrescante para acompañar tus hábitos de bienestar.",
+      "text": "El kéfir es una bebida fermentada de sabor característico. En Dignity Coffee te ofrecemos una opción refrescante para acompañar tus hábitos de bienestar.",
       "artLabel": "Kéfir · Sabor refrescante"
     },
     "story": {
@@ -64,7 +64,7 @@
   },
   "menu": {
     "hero": {
-      "eyebrow": "Dignity Kefir",
+      "eyebrow": "Dignity Coffee",
       "title": "Un producto,",
       "highlight": "un momento para ti.",
       "text": "Conoce nuestro kéfir: una bebida fermentada que acompaña tu día con un sabor refrescante."
@@ -91,7 +91,7 @@
     "eyebrow": "¿Te gustaría probar nuestro kéfir?",
     "title": "Haz tu pedido",
     "highlight": "y disfruta tu pausa.",
-    "email": "hola@dignitykefir.example"
+    "email": "hola@dignitycoffee.example"
   },
   "footer": {
     "description": "Kéfir para acompañar tu rutina de bienestar.",
