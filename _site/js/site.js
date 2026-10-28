@@ -61,7 +61,13 @@ function createProductCard(product) {
 
 async function loadSiteData() {
   try {
-    const response = await fetch('./api/site.json');
+    const pathname = window.location.pathname;
+    const page = pathname.endsWith('/nosotros.html')
+      ? 'about'
+      : pathname.endsWith('/menu.html')
+        ? 'menu'
+        : 'home';
+    const response = await fetch(`./api/${page}.json`);
     if (!response.ok) {
       throw new Error(`El servidor respondió con estado ${response.status}.`);
     }

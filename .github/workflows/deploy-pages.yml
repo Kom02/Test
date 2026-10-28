@@ -32,7 +32,9 @@ jobs:
             'index.html',
             'menu.html',
             'nosotros.html',
-            'data/siteData.json',
+            'data/siteData.home.json',
+            'data/siteData.about.json',
+            'data/siteData.menu.json',
             'designs/global.css',
             'designs/global2.css',
             'designs/kefir.css',
@@ -46,9 +48,20 @@ jobs:
             }
           }
 
-          const site = JSON.parse(fs.readFileSync('data/siteData.json', 'utf8'));
-          if (!site.meta?.title || !site.home?.featured || !Array.isArray(site.menu?.products)) {
-            throw new Error('data/siteData.json no tiene el esquema esperado de Dignity Kefir.');
+          const pages = ['home', 'about', 'menu'];
+          const sites = Object.fromEntries(pages.map((page) => [
+            page,
+            JSON.parse(fs.readFileSync(`data/siteData.${page}.json`, 'utf8')),
+          ]));
+          if (
+            !sites.home.meta?.title
+            || !sites.home.home?.featured
+            || !Array.isArray(sites.home.menu?.products)
+            || !sites.about.about?.hero
+            || !Array.isArray(sites.about.about?.values?.items)
+            || !Array.isArray(sites.menu.menu?.products)
+          ) {
+            throw new Error('Los archivos de datos por página no tienen el esquema esperado de Dignity Kefir.');
           }
 
           const output = '_site';
@@ -82,14 +95,11 @@ jobs:
           }
           `);
 
-          const script = fs.readFileSync('sites/site.js', 'utf8');
-          const staticScript = script.replace("fetch('/api/site')", "fetch('./api/site.json')");
-          if (staticScript === script) {
-            throw new Error("No se encontró fetch('/api/site') en sites/site.js para adaptarlo a GitHub Pages.");
-          }
-          fs.writeFileSync(path.join(output, 'js', 'site.js'), staticScript);
+          fs.copyFileSync('sites/site.js', path.join(output, 'js', 'site.js'));
 
-          fs.copyFileSync('data/siteData.json', path.join(output, 'api', 'site.json'));
+          for (const page of pages) {
+            fs.copyFileSync(`data/siteData.${page}.json`, path.join(output, 'api', `${page}.json`));
+          }
           fs.copyFileSync('resources/kefir.png', path.join(output, 'resources', 'kefir.png'));
           fs.writeFileSync(path.join(output, '.nojekyll'), '');
           NODE
