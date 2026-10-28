@@ -29,9 +29,9 @@ jobs:
           const path = require('node:path');
 
           const requiredFiles = [
-            'html/index.html',
-            'html/menu.html',
-            'html/nosotros.html',
+            'index.html',
+            'menu.html',
+            'nosotros.html',
             'data/siteData.json',
             'designs/global.css',
             'designs/global2.css',
@@ -59,9 +59,7 @@ jobs:
           fs.mkdirSync(path.join(output, 'resources'), { recursive: true });
 
           for (const file of ['index.html', 'menu.html', 'nosotros.html']) {
-            let html = fs.readFileSync(path.join('html', file), 'utf8');
-            html = html.replace('src="/resources/kefir.png"', 'src="resources/kefir.png"');
-            fs.writeFileSync(path.join(output, file), html);
+            fs.copyFileSync(file, path.join(output, file));
           }
 
           for (const file of ['global.css', 'global2.css', 'kefir.css']) {
