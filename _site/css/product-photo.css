@@ -1,0 +1,14 @@
+
+.featured-product-photo {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: min(62vh, 590px);
+  object-fit: contain;
+  filter: drop-shadow(12px 18px 15px rgba(41, 53, 43, 0.18));
+}
+@media (max-width: 760px) {
+  .featured-product-photo { height: 300px; }
+}

@@ -1,0 +1,100 @@
+{
+  "meta": {
+    "title": "Dignity Coffee",
+    "description": "Descubre nuestro kéfir, una bebida fermentada para acompañar tu rutina de bienestar."
+  },
+  "home": {
+    "hero": {
+      "eyebrow": "Kéfir",
+      "title": "Haz una pausa",
+      "highlight": "para sentirte bien.",
+      "text": "Conoce nuestro kéfir: una bebida fermentada, refrescante y llena de sabor para acompañar tu rutina de bienestar.",
+      "artLabel": "Una pausa para ti",
+      "artCaption": "Kéfir · Bienestar · Sabor"
+    },
+    "featured": {
+      "eyebrow": "Nuestro producto",
+      "title": "Kéfir de leche",
+      "highlight": "para tu día a día.",
+      "text": "Es una bebida a base de leche y granos de kefir que se fermenta en microorganismos que la hacen rica en proteínas y otros nutrientes.",
+      "artLabel": "Una pausa para ti",
+      "artCaption": "Bebida fermentada · Mantener refrigerada",
+      "bottleLabel": "de leche",
+      "benefitsTitle": "Lo bueno de elegirlo",
+      "benefits": [
+        { "title": "Proteína y calcio", "text": "Aporta nutrientes propios de la leche; consulta la etiqueta para conocer los valores de este producto." },
+        { "title": "Cultivos de fermentación", "text": "El proceso de fermentación le da su sabor característico y una textura cremosa." },
+        { "title": "Fácil de disfrutar", "text": "Tómalo frío en el desayuno, como colación o mezclado con fruta." }
+      ],
+      "preparationTitle": "¿Cómo se prepara?",
+      "preparation": "Se incorporan cultivos de kéfir a la leche y se deja fermentar bajo condiciones controladas. Después se cuela y se refrigera para conservar su frescura. La receta y el proceso exactos pueden variar según el productor.",
+      "disclaimer": "Contiene leche. Los nutrientes varían según la receta. No sustituye indicaciones médicas ni una alimentación equilibrada.",
+      "orderText": "Pide tu kéfir"
+    },
+    "featuredProductIds": ["kefir"],
+    "note": {
+      "eyebrow": "Un momento para cuidar de ti",
+      "title": "Bienestar que",
+      "highlight": "se disfruta."
+    }
+  },
+  "about": {
+    "hero": {
+      "eyebrow": "Sobre el kéfir",
+      "title": "Una bebida",
+      "highlight": "para tu bienestar.",
+      "text": "El kéfir es una bebida fermentada de sabor característico. En Dignity Coffee te ofrecemos una opción refrescante para acompañar tus hábitos de bienestar.",
+      "artLabel": "Kéfir · Sabor refrescante"
+    },
+    "story": {
+      "eyebrow": "Una elección consciente",
+      "title": "Bienestar que también sabe bien.",
+      "text": "Queremos acercarte una alternativa sabrosa para disfrutar en tu día. Nuestro kéfir es una bebida fermentada de perfil refrescante, pensada para acompañar una rutina equilibrada."
+    },
+    "values": {
+      "eyebrow": "Una opción para tu rutina",
+      "title": "Una pausa",
+      "highlight": "refrescante y distinta.",
+      "items": [
+        { "title": "Bebida fermentada", "text": "El kéfir ofrece un sabor característico y refrescante para disfrutar en distintos momentos del día." },
+        { "title": "Una alternativa diferente", "text": "Una opción para quienes buscan variedad y nuevos sabores en su rutina." },
+        { "title": "A tu ritmo", "text": "Disfrútalo frío durante una pausa o compártelo en una comida con amigos." }
+      ]
+    }
+  },
+  "menu": {
+    "hero": {
+      "eyebrow": "Dignity Coffee",
+      "title": "Un producto,",
+      "highlight": "un momento para ti.",
+      "text": "Conoce nuestro kéfir: una bebida fermentada que acompaña tu día con un sabor refrescante."
+    },
+    "catalog": {
+      "eyebrow": "Nuestro producto",
+      "title": "Kéfir",
+      "highlight": "para disfrutar.",
+      "text": "Conoce nuestro producto y consulta disponibilidad y pedidos."
+    },
+    "products": [
+      {
+        "id": "kefir",
+        "name": "Kéfir",
+        "category": "Bebida fermentada",
+        "description": "Bebida fermentada de sabor suave y ligeramente ácido, ideal para acompañar tu rutina de bienestar.",
+        "price": "$45",
+        "badge": "Nuestro producto",
+        "visual": "peach"
+      }
+    ]
+  },
+  "contact": {
+    "eyebrow": "¿Te gustaría probar nuestro kéfir?",
+    "title": "Haz tu pedido",
+    "highlight": "y disfruta tu pausa.",
+    "email": "hola@dignitycoffee.example"
+  },
+  "footer": {
+    "description": "Kéfir para acompañar tu rutina de bienestar.",
+    "year": 2026
+  }
+}
