@@ -35,6 +35,42 @@
         "price": "$45",
         "badge": "Nuestro producto",
         "visual": "peach"
+      },
+      {
+        "id": "kefir-fresa",
+        "name": "Kéfir de fresa",
+        "category": "Bebida fermentada · Prueba",
+        "description": "Variante de prueba con sabor a fresa y un perfil dulce y refrescante.",
+        "price": "$50",
+        "badge": "Producto de prueba",
+        "visual": "berry"
+      },
+      {
+        "id": "kefir-mango",
+        "name": "Kéfir de mango",
+        "category": "Bebida fermentada · Prueba",
+        "description": "Variante de prueba con mango, pensada para una opción frutal y tropical.",
+        "price": "$50",
+        "badge": "Producto de prueba",
+        "visual": "mango"
+      },
+      {
+        "id": "kefir-citricos",
+        "name": "Kéfir cítrico",
+        "category": "Bebida fermentada · Prueba",
+        "description": "Variante de prueba con notas cítricas y un toque ácido.",
+        "price": "$48",
+        "badge": "Producto de prueba",
+        "visual": "citrus"
+      },
+      {
+        "id": "kefir-pepino-limon",
+        "name": "Kéfir de pepino y limón",
+        "category": "Bebida fermentada · Prueba",
+        "description": "Variante de prueba con pepino y limón, de sabor fresco y ligero.",
+        "price": "$48",
+        "badge": "Producto de prueba",
+        "visual": "cucumber"
       }
     ]
   }

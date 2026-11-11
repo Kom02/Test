@@ -35,6 +35,11 @@ function createProductCard(product) {
   visual.className = `drink-visual drink-visual--${visualType}`;
   visual.setAttribute('aria-hidden', 'true');
 
+  const imagePlaceholder = document.createElement('span');
+  imagePlaceholder.className = 'product-image-placeholder';
+  imagePlaceholder.textContent = 'Imagen del producto';
+  visual.append(imagePlaceholder);
+
   const badge = document.createElement('span');
   badge.className = 'product-badge';
   badge.textContent = product.badge;
